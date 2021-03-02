@@ -1,4 +1,6 @@
-// 十进制转换为二进制
+// 用栈解决问题
+
+// 1.十进制转换为二进制
 function decimalToBinary(decNum){
 	const remStack = new Stack();
 	let rem, bryStr = '';
@@ -13,7 +15,7 @@ function decimalToBinary(decNum){
 	return bryStr;
 }
 
-// 十进制转换成基数为2~36的任意进制
+// 2.十进制转换成基数为2~36的任意进制
 function baseConverter(decNum, base){
 	const remStack = new Stack();
 	const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
