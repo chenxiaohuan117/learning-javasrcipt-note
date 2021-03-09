@@ -101,7 +101,7 @@ class LinkedList {
 	}
 	// 获取链表的头元素
 	getHead() {
-		return this.head.element;
+		return this.head;
 	}
 	// 清除链表元素
 	clear() {

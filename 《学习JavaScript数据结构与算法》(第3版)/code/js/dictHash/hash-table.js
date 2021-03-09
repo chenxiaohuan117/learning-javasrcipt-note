@@ -1,5 +1,5 @@
 /**
- * 散列表
+ * 5.2 散列表
  * 散列算法的作用是尽可能快地在数据结构中找到一个值。
  * 使用散列函数，就知道值的具体位置，因此能够快速检索到该值。
  * 散列函数的作用是给定一个键值，然后返回值在表中的地址。
@@ -17,7 +17,7 @@ class HashTable {
 		this.toStrFn = toStrFn;
 		this.table = {};
 	}
-	// 创建散列函数
+	// 创建（lose lose）散列函数
 	loseloseHashCode(key) {
 		if (typeof key === 'number') {
 			return key;
@@ -29,6 +29,16 @@ class HashTable {
 		}
 		return hash % 37;
 	}
+
+	// djb2HashCode(key) {
+	// 	const tableKey = this.toStrFn(key);
+	// 	let hash = 5381;
+	// 	for (let i = 0; i < tableKey.length; i++) {
+	// 		hash = (hash * 33) + tableKey.charCodeAt(i);
+	// 	}
+	// 	return hash % 1013;
+	// }
+
 	hashCode(key) {
 		return this.loseloseHashCode(key);
 	}
@@ -60,7 +70,7 @@ class HashTable {
 	getTable() {
 		return this.table;
 	}
-	// 检测散列表是否为空
+	// 检查散列表是否为空
 	isEmpty() {
 		return this.size() === 0;
 	}

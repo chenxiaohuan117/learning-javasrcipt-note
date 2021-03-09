@@ -4,37 +4,118 @@
 		<meta charset="utf-8">
 		<title>5.字典和散列表</title>
 		<script src="../js/util.js"></script>
+		<script src="../js/models/linked-list-models.js"></script>
+		<script src="../js/linkedList/linked-list.js"></script>
 		<script src="../js/models/dict-hash-models.js"></script>
 		<script src="../js/dictHash/dictionary.js"></script>
 		<script src="../js/dictHash/hash-table.js"></script>
-		<script src="../js/models/linked-list-models.js"></script>
-		<script src="../js/linkedList/linked-list.js"></script>
 		<script src="../js/dictHash/hash-table-separate-chaining.js"></script>
+		<script src="../js/dictHash/hash-table-linear-probing.js"></script>
 	</head>
 	<body>
 		<h1>请打开控制台查看测试结果！</h1>
 		
 		<script>
-			// 测试字典
-			const dictionary = new Dictionary();
-			dictionary.set('111', 'cxh');
-			dictionary.set('222', 'hcy');
-			console.log(dictionary);
-			console.log(dictionary.toString());
 			
-			// 测试散列表
-			const hash = new HashTable();
-			hash.put('111', 'cxh');
-			hash.put('222', 'hcy');
-			console.log(hash);
-			console.log(hash.toString());
+			console.log('----------5.1 测试创建的字典----------');
 			
-			// 测试分离链接
-			const sep = new HashTableSeparateChaining();
-			sep.put('111', 'cxh');
-			sep.put('222', 'hcy');
-			console.log(sep);
-			console.log(sep.toString());
+			console.log('创建Dictionary类的实例dict字典');
+			const dict = new Dictionary();
+			console.log('向字典dict中添加新元素：key: 1 value: 111');
+			dict.set(1, 111);
+			console.log('向字典dict中添加新元素：key: 2 value: 222');
+			dict.set(2, 222);
+			console.log('向字典dict中添加新元素：key: 3 value: 333');
+			dict.set(3, 333);
+			console.log('返回字典dict的字符串：' + dict.toString());
+			console.log('从字典dict中获取键值 3 对应的数据值：' + dict.get(3));
+			console.log('检测字典dict中是否存在键值 4 对应的数据值：' + dict.hasKey(4));
+			console.log('将字典dict所包含的所有数值以数组形式返回：', dict.values());
+			console.log('将字典dict所包含的所有键名以数组形式返回：', dict.keys());
+			console.log('将字典dict中所有[键, 值]对返回：', dict.keyValues());
+			console.log('从字典dict中移除键值 2 对应的数据值：' + dict.remove(2));
+			console.log('返回字典dict所包含值的数量：' + dict.size())
+			console.log('删除该字典dict中的所有值：' + dict.clear());
+			console.log('判断字典dict是否为空：' + dict.isEmpty());
+			
+			console.log('----------5.2 测试创建的散列表----------');
+			
+			console.log('创建HashTable类的实例hashTable散列表');
+			const hashTable = new HashTable();
+			console.log('向散列表hashTable中添加新元素：key: 1 value: 111');
+			hashTable.put(1, 111);
+			console.log('向散列表hashTable中添加新元素：key: 2 value: 222');
+			hashTable.put(2, 222);
+			console.log('向散列表hashTable中添加新元素：key: 3 value: 333');
+			hashTable.put(3, 333);
+			console.log('获取散列表hashTable：', hashTable.getTable());
+			console.log('从散列表hashTable中获取一个key为2的值：' + hashTable.get(2));
+			console.log('从散列表hashTable中移除一个key为1的值：' + hashTable.remove(1));
+			console.log('获取散列表hashTable的长度：' + hashTable.size());
+			console.log('清空散列表hashTable：' + hashTable.clear());
+			console.log('检查散列表hashTable是否为空：' + hashTable.isEmpty());
+			
+			console.log('----------5.3 处理散列表中的冲突----------');
+			
+			console.log('----------5.3.1 分离链接法----------');
+			
+			console.log('创建HashTableSeparateChaining类的实例hashTableSeparateChaining散列表');
+			const hashTableSeparateChaining = new HashTableSeparateChaining();
+			console.log('向散列表hashTableSeparateChaining中添加新元素：key: 1 value: 111');
+			hashTableSeparateChaining.put(1, 111);
+			console.log('向散列表hashTableSeparateChaining中添加新元素：key: 1 value: 222');
+			hashTableSeparateChaining.put(1, 222);
+			console.log('向散列表hashTableSeparateChaining中添加新元素：key: 2 value: 333');
+			hashTableSeparateChaining.put(2, 333);
+			console.log('向散列表hashTableSeparateChaining中添加新元素：key: 2 value: 444');
+			hashTableSeparateChaining.put(2, 444);
+			console.log('获取散列表hashTableSeparateChaining：', hashTableSeparateChaining.getTable());
+			console.log('从散列表hashTableSeparateChaining中获取key为1的一个值：' + hashTableSeparateChaining.get(1));
+			console.log('从散列表hashTableSeparateChaining中移除key为2的一个值：' + hashTableSeparateChaining.remove(2));
+			console.log('获取散列表hashTableSeparateChaining的长度：' + hashTableSeparateChaining.size());
+			console.log('清空散列表hashTableSeparateChaining：' + hashTableSeparateChaining.clear());
+			console.log('检查散列表hashTableSeparateChaining是否为空：' + hashTableSeparateChaining.isEmpty());
+			
+			console.log('----------5.3.2 线性探查----------');
+			
+			console.log('----------方法1：软删除----------');
+			
+			console.log('创建HashTableLinearProbingLazy类的实例hashTableLinearProbingLazy散列表');
+			const hashTableLinearProbingLazy = new HashTableLinearProbingLazy();
+			console.log('向散列表hashTableLinearProbingLazy中添加新元素：key: 1 value: 111');
+			hashTableLinearProbingLazy.put(1, 111);
+			console.log('向散列表hashTableLinearProbingLazy中添加新元素：key: 1 value: 222');
+			hashTableLinearProbingLazy.put(1, 222);
+			console.log('向散列表hashTableLinearProbingLazy中添加新元素：key: 2 value: 333');
+			hashTableLinearProbingLazy.put(2, 333);
+			console.log('向散列表hashTableLinearProbingLazy中添加新元素：key: 2 value: 444');
+			hashTableLinearProbingLazy.put(2, 444);
+			console.log('获取散列表hashTableLinearProbingLazy：', hashTableLinearProbingLazy.getTable());
+			console.log('从散列表hashTableLinearProbingLazy中获取key为1的一个值：' + hashTableLinearProbingLazy.get(1));
+			console.log('从散列表hashTableLinearProbingLazy中移除key为2的一个值：' + hashTableLinearProbingLazy.remove(2));
+			console.log('从散列表hashTableLinearProbingLazy中移除key为1的一个值：' + hashTableLinearProbingLazy.remove(1));
+			console.log('获取散列表hashTableLinearProbingLazy的长度：' + hashTableLinearProbingLazy.size());
+			console.log('清空散列表hashTableLinearProbingLazy：' + hashTableLinearProbingLazy.clear());
+			console.log('检查散列表hashTableLinearProbingLazy是否为空：' + hashTableLinearProbingLazy.isEmpty());
+			
+			console.log('----------方法2：检验是否有必要将一个或多个元素移动到之前的位置----------');
+			
+			console.log('创建HashTableLinearProbing类的实例hashTableLinearProbing散列表');
+			const hashTableLinearProbing = new HashTableLinearProbing();
+			console.log('向散列表hashTableLinearProbing中添加新元素：key: 1 value: 111');
+			hashTableLinearProbing.put(1, 111);
+			console.log('向散列表hashTableLinearProbing中添加新元素：key: 1 value: 222');
+			hashTableLinearProbing.put(1, 222);
+			console.log('向散列表hashTableLinearProbing中添加新元素：key: 2 value: 333');
+			hashTableLinearProbing.put(2, 333);
+			console.log('向散列表hashTableLinearProbing中添加新元素：key: 2 value: 444');
+			hashTableLinearProbing.put(2, 444);
+			console.log('获取散列表hashTableLinearProbing：', hashTableLinearProbing.getTable());
+			console.log('从散列表hashTableLinearProbing中获取key为1的一个值：' + hashTableLinearProbing.get(1));
+			console.log('从散列表hashTableLinearProbing中移除key为2的一个值：' + hashTableLinearProbing.remove(2));
+			console.log('获取散列表hashTableLinearProbing的长度：' + hashTableLinearProbing.size());
+			console.log('清空散列表hashTableLinearProbing：' + hashTableLinearProbing.clear());
+			console.log('检查散列表hashTableLinearProbing是否为空：' + hashTableLinearProbing.isEmpty());
 		</script>
 	</body>
 </html>
