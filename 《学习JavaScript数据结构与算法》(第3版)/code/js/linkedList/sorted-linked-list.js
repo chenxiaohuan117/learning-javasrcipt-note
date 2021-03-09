@@ -1,5 +1,6 @@
 /**
- * 有序链表，是指保持元素有序的链表结构。
+ * 3.4 有序链表
+ * 是指保持元素有序的链表结构。
  * 除了使用排序算法外，我们还可以将元素插入到正确的位置来保证链表的有序性。
  * */
 
@@ -26,7 +27,7 @@ class SortedLinkedList extends LinkedList {
 		const pos = this.getIndexNextSortedElement(element);
 		return super.insert(element, pos);
 	}
-	// 获取元素的插入位置
+	// 获取元素的位置
 	getIndexNextSortedElement(element) {
 		let current = this.head;
 		let i = 0;

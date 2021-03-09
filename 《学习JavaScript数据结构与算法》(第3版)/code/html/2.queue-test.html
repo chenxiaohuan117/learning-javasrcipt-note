@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>2.队列和双端队列</title>
+		<script src="../js/queue/queue.js"></script>
+		<script src="../js/queue/deque.js"></script>
+		<script src="../js/queue/queue-use.js"></script>
+	</head>
+	<body>
+		<h1>请打开控制台查看测试结果！</h1>
+		
+		<script>
+			
+			console.log('----------2.1 测试创建的队列----------');
+			
+			console.log('创建Queue类的实例queue队列');
+			const queue = new Queue();
+			console.log('给queue队列添加元素：111');
+			queue.enqueue(111);
+			console.log('给queue队列添加元素：222');
+			queue.enqueue(222);
+			console.log('queue队列的长度为：' + queue.size());
+			console.log('返回queue队列的字符串形式：' + queue.toString());
+			console.log('查看queue队列顶元素：' + queue.peek());
+			console.log('从queue队列中移除元素：' + queue.dequeue());
+			console.log('queue队列的长度为：' + queue.size());
+			console.log('清空queue队列的元素：' + queue.clear());
+			console.log('检查queue队列是否为空：' + queue.isEmpty());
+			
+			console.log('----------2.2 测试创建的双端队列----------');
+			
+			console.log('创建Deque类的实例deque双端队列');
+			const deque = new Deque();
+			console.log('在双端队列deque前端添加新的元素：111');
+			deque.addFront(111);
+			console.log('在双端队列deque前端添加新的元素：222');
+			deque.addFront(222);
+			console.log('在双端队列deque后端添加新的元素：333');
+			deque.addBack(333);
+			console.log('在双端队列deque后端添加新的元素：444');
+			deque.addBack(444);
+			console.log('返回双端队列deque的字符串形式：' + deque.toString());
+			console.log('返回双端队列deque前端的第一个元素：' + deque.peekFront());
+			console.log('返回双端队列deque后端的第一个元素：' + deque.peekBack());
+			console.log('双端队列deque的长度为：' + deque.size());
+			console.log('从双端队列deque前端移除第一个元素：' + deque.removeFront());
+			console.log('从双端队列deque后端移除第一个元素：' + deque.removeBack());
+			console.log('双端队列deque的长度为：' + deque.size());
+			console.log('清空双端队列deque的元素：' + deque.clear());
+			console.log('检查双端队列deque是否为空：' + deque.isEmpty());
+			
+			console.log('----------2.3 用队列和双端队列解决问题----------');
+			
+			console.log('----------2.3.1 循环队列--击鼓传花游戏----------');
+			
+			const elementsList = ['张三', '李四', '王五', '李六', '吴七', '秦八'];
+			const num = 7;
+			let res = hotPotato(elementsList, num);
+			console.log('参加此次击鼓传花的人有：' + elementsList.toString());
+			console.log(`此次击鼓传花每传${num}次淘汰一位选手`);
+			console.log(`此次击鼓传花中被淘汰的选手有：${res.elimitatedList.toString()}`);
+			console.log(`此次击鼓传花中获胜的选手是：${res.winner}`);
+			
+			console.log('----------2.3.2 回文检查器----------');
+			
+			console.log('abab 是否是回文：' + palindromeChecker('abab'));
+			console.log('abba 是否是回文：' + palindromeChecker('abba'));
+		</script>
+	</body>
+</html>

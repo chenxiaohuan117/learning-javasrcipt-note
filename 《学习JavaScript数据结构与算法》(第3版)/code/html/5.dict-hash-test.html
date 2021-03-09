@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>5.字典和散列表</title>
+		<script src="../js/util.js"></script>
+		<script src="../js/models/dict-hash-models.js"></script>
+		<script src="../js/dictHash/dictionary.js"></script>
+		<script src="../js/dictHash/hash-table.js"></script>
+		<script src="../js/models/linked-list-models.js"></script>
+		<script src="../js/linkedList/linked-list.js"></script>
+		<script src="../js/dictHash/hash-table-separate-chaining.js"></script>
+	</head>
+	<body>
+		<h1>请打开控制台查看测试结果！</h1>
+		
+		<script>
+			// 测试字典
+			const dictionary = new Dictionary();
+			dictionary.set('111', 'cxh');
+			dictionary.set('222', 'hcy');
+			console.log(dictionary);
+			console.log(dictionary.toString());
+			
+			// 测试散列表
+			const hash = new HashTable();
+			hash.put('111', 'cxh');
+			hash.put('222', 'hcy');
+			console.log(hash);
+			console.log(hash.toString());
+			
+			// 测试分离链接
+			const sep = new HashTableSeparateChaining();
+			sep.put('111', 'cxh');
+			sep.put('222', 'hcy');
+			console.log(sep);
+			console.log(sep.toString());
+		</script>
+	</body>
+</html>

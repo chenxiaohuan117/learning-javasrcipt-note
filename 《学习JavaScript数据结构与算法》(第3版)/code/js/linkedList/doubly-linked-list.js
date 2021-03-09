@@ -1,5 +1,5 @@
 /**
- * 双向链表
+ * 3.2 双向链表
  * 在双向链表中，链接是双向的，一个链向下一个元素，一个链向前一个元素。
  * 双向链表提供了两种迭代方法：从头到尾或者从尾到头。
  * 我们也可以访问一个特定节点的下一个或前一个元素。
@@ -98,7 +98,7 @@ class DoublyLinkedList extends LinkedList {
 	}
 	// 获取链表尾元素
 	getTail() {
-		return this.tail;
+		return this.tail.element;
 	}
 	// 清除链表元素
 	clear() {
@@ -113,12 +113,12 @@ class DoublyLinkedList extends LinkedList {
 		let objStr = `${this.head.element}`;
 		let current = this.head.next;
 		while (current) {
-			objStr = `${objStr},${current.element}`;
+			objStr = `${objStr}, ${current.element}`;
 			current = current.next;
 		}
 		return objStr;
 	}
-	// 翻转链表字符串
+	// 反向返回链表字符串
 	inverseToString() {
 		if (!this.tail) {
 			return '';

@@ -1,4 +1,5 @@
 /**
+ * 4. 集合
  * 集合是一种不允许值重复的顺序数据结构，是由一组无序且唯一的项组成的。
  * 集合运算（并集、交集、差集、子集等）在计算机科学中的主要应用之一是数据库。
  * 当我们创建一条从关系型数据库中获取一个数据集合的查询语句时，
@@ -12,7 +13,7 @@
  * 纯函数不会修改当前的实例或参数，只会生成一个新的结果。
  * */
 
-// 创建集合类
+// 4.1 创建集合类
 class Set {
 	constructor() {
 		this.items = {};
@@ -37,7 +38,7 @@ class Set {
 		}
 		return false;
 	}
-	// 清空集合中的元素
+	// 移除集合中的所有元素
 	clear() {
 		this.items = {};
 	}
@@ -45,7 +46,7 @@ class Set {
 	size() {
 		return Object.keys(this.items).length;
 	}
-	// 获取包含集合中所有元素值的数组
+	// 获取包含集合中所有元素值
 	values() {
 		return Object.values(this.items);
 	}

@@ -1,8 +1,9 @@
 /**
+ * 3.6 基于链表创建栈
  * 可以使用LinkedList类及其扩展作为内部的数据结构来创建其他数据类型，例如栈、队列和双向队列。
  * */
 
-// 创建基于链表的栈
+// 创建基于双向链表的栈
 class StackLinkedList {
 	constructor() {
 		this.items = new DoublyLinkedList();

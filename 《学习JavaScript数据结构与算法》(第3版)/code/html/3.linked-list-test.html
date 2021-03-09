@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>3.链表</title>
+		<script src="../js/util.js"></script>
+		<script src="../js/models/linked-list-models.js"></script>
+		<script src="../js/linkedList/linked-list.js"></script>
+		<script src="../js/linkedList/doubly-linked-list.js"></script>
+		<script src="../js/linkedList/circular-linked-list.js"></script>
+		<script src="../js/linkedList/sorted-linked-list.js"></script>
+		<script src="../js/linkedList/stack-linked-list.js"></script>
+	</head>
+	<body>
+		<h1>请打开控制台查看测试结果！</h1>
+		
+		<script>
+			
+			console.log('----------3.1 测试创建的链表----------');
+			
+			console.log('创建LinkedList类的实例linkedList链表');
+			const linkedList = new LinkedList();
+			console.log('向链表linkedList尾部添加一个新元素：111');
+			linkedList.push(111);
+			console.log('向链表linkedList尾部添加一个新元素：222');
+			linkedList.push(222);
+			console.log('向链表linkedList中的位置1插入一个新元素：333');
+			linkedList.insert(333, 1);
+			console.log('向链表linkedList中的位置0插入一个新元素：444');
+			linkedList.insert(444, 0);
+			console.log('返回链表linkedList的字符串：' + linkedList.toString());
+			console.log('获取链表linkedList的头元素：' + linkedList.getHead());
+			console.log('获取链表linkedList的长度：' + linkedList.size());
+			console.log('移除链表linkedList中的 333 元素：' + linkedList.remove(333));
+			console.log('清空链表linkedList：' + linkedList.clear());
+			console.log('检查链表linkedList是否为空：' + linkedList.isEmpty());
+			
+			console.log('----------3.2 测试创建的双向链表----------');
+			
+			console.log('创建DoublyLinkedList类的实例doublyLinkedList双向链表');
+			const doublyLinkedList = new DoublyLinkedList();
+			console.log('向双向链表doublyLinkedList尾部添加一个新元素：111');
+			doublyLinkedList.push(111);
+			console.log('向双向链表doublyLinkedList尾部添加一个新元素：222');
+			doublyLinkedList.push(222);
+			console.log('向双向链表doublyLinkedList中的位置1插入一个新元素：333');
+			doublyLinkedList.insert(333, 1);
+			console.log('向双向链表doublyLinkedList中的位置0插入一个新元素：444');
+			doublyLinkedList.insert(444, 0);
+			console.log('返回双向链表doublyLinkedList的字符串：' + doublyLinkedList.toString());
+			console.log('反向返回双向链表doublyLinkedList的字符串：' + doublyLinkedList.inverseToString());
+			console.log('获取双向链表doublyLinkedList的头元素：' + doublyLinkedList.getHead());
+			console.log('获取双向链表doublyLinkedList的尾元素：' + doublyLinkedList.getTail());
+			console.log('获取双向链表doublyLinkedList的长度：' + doublyLinkedList.size());
+			console.log('移除双向链表doublyLinkedList中的 333 元素：' + doublyLinkedList.remove(333));
+			console.log('清空双向链表doublyLinkedList：' + doublyLinkedList.clear());
+			console.log('检查双向链表doublyLinkedList是否为空：' + doublyLinkedList.isEmpty());
+			
+			console.log('----------3.3 测试创建的循环链表----------');
+			
+			console.log('创建CircularLinkedList类的实例circularLinkedList循环链表');
+			const circularLinkedList = new CircularLinkedList();
+			console.log('向循环链表circularLinkedList尾部添加一个新元素：111');
+			circularLinkedList.push(111);
+			console.log('向循环链表circularLinkedList尾部添加一个新元素：222');
+			circularLinkedList.push(222);
+			console.log('向循环链表circularLinkedList中的位置1插入一个新元素：333');
+			circularLinkedList.insert(333, 1);
+			console.log('向循环链表circularLinkedList中的位置0插入一个新元素：444');
+			circularLinkedList.insert(444, 0);
+			console.log('返回循环链表circularLinkedList的字符串：' + circularLinkedList.toString());
+			console.log('获取循环链表circularLinkedList的头元素：' + circularLinkedList.getHead());
+			console.log('获取循环链表circularLinkedList的长度：' + circularLinkedList.size());
+			console.log('移除循环链表circularLinkedList中的 333 元素：' + circularLinkedList.remove(333));
+			console.log('清空循环链表circularLinkedList：' + circularLinkedList.clear());
+			console.log('检查循环链表circularLinkedList是否为空：' + circularLinkedList.isEmpty());
+			
+			console.log('----------3.4 测试创建的有序链表----------');
+			
+			console.log('创建SortedLinkedList类的实例sortedLinkedList有序链表');
+			const sortedLinkedList = new SortedLinkedList();
+			console.log('向有序链表sortedLinkedList尾部添加一个新元素：333');
+			sortedLinkedList.push(333);
+			console.log('向有序链表sortedLinkedList尾部添加一个新元素：222');
+			sortedLinkedList.push(222);
+			console.log('向有序链表sortedLinkedList中的位置1插入一个新元素：444');
+			sortedLinkedList.insert(444, 1);
+			console.log('向有序链表sortedLinkedList中的位置0插入一个新元素：111');
+			sortedLinkedList.insert(111, 0);
+			console.log('返回有序链表sortedLinkedListt的字符串：' + sortedLinkedList.toString());
+			console.log('获取有序链表sortedLinkedList的头元素：' + sortedLinkedList.getHead());
+			console.log('获取有序链表sortedLinkedList的长度：' + sortedLinkedList.size());
+			console.log('移除有序链表sortedLinkedList中的 333 元素：' + sortedLinkedList.remove(333));
+			console.log('清空有序链表sortedLinkedList：' + sortedLinkedList.clear());
+			console.log('检查有序链表sortedLinkedList是否为空：' + sortedLinkedList.isEmpty());
+			
+			console.log('----------3.5 测试基于双向链表创建的栈----------');
+			
+			console.log('创建StackLinkedList类的实例stack栈');
+			const stack = new StackLinkedList();
+			console.log('给stack栈添加元素：111');
+			stack.push(111);
+			console.log('给stack栈添加元素：222');
+			stack.push(222);
+			console.log('返回stack栈的字符串：' + stack.toString());
+			console.log('stack栈的长度为：' + stack.size());
+			console.log('查看stack栈顶元素：' + stack.peek());
+			console.log('从stack栈顶移除元素：' + stack.pop());
+			console.log('stack栈的长度为：' + stack.size());
+			console.log('清空stack栈的元素：' + stack.clear());
+			console.log('检查stack栈是否为空：' + stack.isEmpty());
+			
+		</script>
+	</body>
+</html>

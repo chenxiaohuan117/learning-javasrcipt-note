@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>4.集合</title>
+		<script src="../js/set/set.js"></script>
+	</head>
+	<body>
+		<h1>请打开控制台查看测试结果！</h1>
+		
+		<script>
+			
+			console.log('----------4.1 测试创建的集合----------');
+			
+			console.log('创建Set类的实例setA集合');
+			const setA = new Set();
+			console.log('向setA集合中添加元素：111');
+			setA.add(111);
+			console.log('向setA集合中添加元素：222');
+			setA.add(222);
+			console.log('向setA集合中添加元素：333');
+			setA.add(333);
+			console.log('向setA集合中添加元素：444');
+			setA.add(444);
+			console.log('检查元素 333 是否在集合setA中：' + setA.has(333));
+			console.log('获取集合setA中所包含元素的数量：' + setA.size());
+			console.log('获取包含集合setA中所有元素值：' + setA.values());
+			
+			console.log('创建Set类的实例setB集合');
+			const setB = new Set();
+			console.log('向setB集合中添加元素：222');
+			setB.add(222);
+			console.log('向setB集合中添加元素：333');
+			setB.add(333);
+			console.log('向setB集合中添加元素：444');
+			setB.add(444);
+			console.log('获取包含集合setB中所有元素值：' + setB.values());
+			
+			console.log('----------4.2 测试集合运算----------');
+			
+			console.log('setA和setB的并集是：' + setA.union(setB));
+			console.log('setA和setB的交集是：' + setA.intersection(setB));
+			console.log('setA和setB的差集是：' + setA.difference(setB));
+			console.log('setB和setA的差集是：' + setB.difference(setA));
+			console.log('setA是否是setB的子集：' + setA.isSubsetOf(setB));
+			console.log('setB是否是setA的子集：' + setB.isSubsetOf(setA));
+		</script>
+	</body>
+</html>

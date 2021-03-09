@@ -1,5 +1,5 @@
 /**
- * 双端队列（deque，或称double-ended queue）
+ * 2.2 双端队列（deque，或称double-ended queue）
  * 是一种允许我们同时从前端和后端添加和移除元素的特殊队列。
  * 双端队列同时遵守了先进先出和后进先出原则，可以说它是把队列和栈相结合的一种数据结构。
  * */
@@ -65,28 +65,28 @@ class Deque {
 		}
 		return this.items[this.count - 1];
 	}
-	// 检查队列是否为空
+	// 检查双端队列是否为空
 	isEmpty() {
 		return this.size() === 0;
 	}
-	// 获取队列的长度
+	// 获取双端队列的长度
 	size() {
 		return this.count - this.lowestCount;
 	}
-	// 清空队列元素
+	// 清空双端队列元素
 	clear() {
 		this.count = 0;
 		this.lowestCount = 0;
 		this.items = {};
 	}
-	// 创建toString方法
+	// 实现toString方法
 	toString() {
 		if (this.isEmpty()) {
 			return '';
 		}
 		let objStr = `${this.items[this.lowestCount]}`;
 		for (let i = this.lowestCount + 1; i < this.count; i++) {
-			objstr = `${objStr}, S{this.items[i]}`;
+			objStr = `${objStr}, ${this.items[i]}`;
 		}
 		return objStr;
 	}
