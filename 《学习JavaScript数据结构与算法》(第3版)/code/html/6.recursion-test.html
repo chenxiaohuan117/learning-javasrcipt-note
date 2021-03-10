@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>6.递归</title>
+		<script src="../js/recursion/recursion.js"></script>
+	</head>
+	<body>
+		<h1>请打开控制台查看测试结果！</h1>
+		
+		<script>
+			
+			console.log('----------6.1 计算一个数的阶乘----------');
+			
+			console.log('----------方法1: 迭代阶乘----------');
+			
+			console.log('3的阶乘是：' + factorialIterative(3));
+			
+			console.log('----------方法2:递归阶乘----------');
+			
+			console.log('5的阶乘是：' + factorial(5));
+			
+			console.log('----------6.2 斐波那契数列----------');
+			
+			console.log('----------方法1: 迭代求斐波那契数----------');
+			
+			console.log('位置9的斐波那契数是：' + fibonacciIterative(9));
+			
+			console.log('----------方法2: 递归求斐波那契数----------');
+			
+			console.log('位置8的斐波那契数是：' + fibonacci(8));
+			
+			console.log('----------方法3: 记忆化斐波那契数----------');
+			
+			console.log('位置7的斐波那契数是：' + fibonacciMemoization()(7));
+			console.log('位置6的斐波那契数是：' + fibonacciMemoization()(6));
+			
+		</script>
+	</body>
+</html>
