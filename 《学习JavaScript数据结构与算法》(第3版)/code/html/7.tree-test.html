@@ -6,14 +6,169 @@
 		<script src="../js/util.js"></script>
 		<script src="../js/models/tree-models.js"></script>
 		<script src="../js/tree/binary-search-tree.js"></script>
+		<script src="../js/tree/avl-tree.js"></script>
 	</head>
 	<body>
 		<h1>请打开控制台查看测试结果！</h1>
-		
+
 		<script>
+			console.log('----------7.1 测试创建的二叉搜索树----------');
+
+			console.log('创建BinarySearchTree类的实例binarySearchTree二叉搜索树');
+			const binarySearchTree = new BinarySearchTree();
+			console.log('向二叉搜索树binarySearchTree中插入一个键：11');
+			binarySearchTree.insert(11);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：7');
+			binarySearchTree.insert(7);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：15');
+			binarySearchTree.insert(15);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：5');
+			binarySearchTree.insert(5);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：3');
+			binarySearchTree.insert(3);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：9');
+			binarySearchTree.insert(9);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：8');
+			binarySearchTree.insert(8);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：10');
+			binarySearchTree.insert(10);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：13');
+			binarySearchTree.insert(13);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：12');
+			binarySearchTree.insert(12);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：14');
+			binarySearchTree.insert(14);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：20');
+			binarySearchTree.insert(20);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：18');
+			binarySearchTree.insert(18);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：25');
+			binarySearchTree.insert(25);
+			console.log('向二叉搜索树binarySearchTree中插入一个键：6');
+			binarySearchTree.insert(6);
+
+			console.log('----------7.2 树的遍历----------');
+
+			const printNode = val => console.log(val);
+
+			console.log('----------7.2.1 中序遍历----------');
+
+			console.log('打印中序遍历二叉搜索树binarySearchTree获得的所有节点的值');
+			binarySearchTree.inOrderTraverse(printNode);
+
+			console.log('----------7.2.2 先序遍历----------');
+
+			console.log('打印先序遍历二叉搜索树binarySearchTree获得的所有节点的值');
+			binarySearchTree.preOrderTraverse(printNode);
+
+			console.log('----------7.2.3 后序遍历----------')
+
+			console.log('打印后序遍历二叉搜索树binarySearchTree获得的所有节点的值');
+			binarySearchTree.postOrderTraverse(printNode);
+
+			console.log('----------7.3 搜索树中的值----------');
+
+			console.log('----------7.3.1 搜索最小值----------');
+
+			console.log('二叉搜索树binarySearchTree的最小值是：' + binarySearchTree.min());
+
+			console.log('----------7.3.2 搜索最大值----------');
+
+			console.log('二叉搜索树binarySearchTree的最大值是：' + binarySearchTree.max());
+
+			console.log('----------7.3.3 搜索特定值----------');
+
+			console.log('二叉搜索树binarySearchTrees是否有key为1的值：' + binarySearchTree.search(1));
+			console.log('二叉搜索树binarySearchTrees是否有key为15的值：' + binarySearchTree.search(15));
+
+			console.log('----------7.4 移除一个节点----------');
+
+			console.log('----------7.4.1 移除一个叶节点----------');
+
+			console.log('从二叉搜索树binarySearchTrees中移除key为6的值：' + binarySearchTree.remove(6));
+			console.log('查看二叉搜索树binarySearchTree：', binarySearchTree);
+			console.log('从二叉搜索树binarySearchTrees中移除key为18的值：' + binarySearchTree.remove(18));
+			console.log('查看二叉搜索树binarySearchTree：', binarySearchTree);
+
+			console.log('----------7.4.2 移除有一个左侧或右侧节点的节点----------');
+
+			// console.log('从二叉搜索树binarySearchTrees中移除key为5的值：' + binarySearchTree.remove(5));
+			// console.log('查看二叉搜索树binarySearchTree：', binarySearchTree);
+			console.log('从二叉搜索树binarySearchTrees中移除key为20的值：' + binarySearchTree.remove(20));
+			console.log('查看二叉搜索树binarySearchTree：', binarySearchTree);
+
+			console.log('----------7.4.3 移除有两个子节点的节点----------');
+
+			console.log('从二叉搜索树binarySearchTrees中移除key为7的值：' + binarySearchTree.remove(7));
+			console.log('查看二叉搜索树binarySearchTree：', binarySearchTree);
+
+			console.log('----------7.5 自平衡树----------');
 			
+			console.log('----------7.5.1 左-左(LL):向右的单旋转----------');
 			
+			console.log('创建AVLTree类的实例treeLL自平衡树');
+			const treeLL = new AVLTree();
+			console.log('向自平衡树treeLL中插入一个键：3');
+			treeLL.insert(3);
+			console.log('向自平衡树treeLL中插入一个键：2');
+			treeLL.insert(2);
+			console.log('向自平衡树treeLL中插入一个键：1');
+			treeLL.insert(1);
+			console.log('查看自平衡树treeLL：', treeLL);
 			
+			console.log('----------7.5.2 右-右(RR):向左的单旋转----------');
+			
+			console.log('创建AVLTree类的实例treeRR自平衡树');
+			const treeRR = new AVLTree();
+			console.log('向自平衡树treeRR中插入一个键：1');
+			treeRR.insert(1);
+			console.log('向自平衡树treeRR中插入一个键：2');
+			treeRR.insert(2);
+			console.log('向自平衡树treeRR中插入一个键：3');
+			treeRR.insert(3);
+			console.log('查看自平衡树treeRR：', treeRR);
+			
+			console.log('----------7.5.3 左-右(LR):向右的双旋转----------');
+			
+			const treeLR = new AVLTree();
+			console.log('向自平衡树treeLR中插入一个键：50');
+			treeLR.insert(50);
+			console.log('向自平衡树treeLR中插入一个键：30');
+			treeLR.insert(30);
+			console.log('向自平衡树treeLR中插入一个键：70');
+			treeLR.insert(70);
+			console.log('向自平衡树treeLR中插入一个键：10');
+			treeLR.insert(10);
+			console.log('向自平衡树treeLR中插入一个键：40');
+			treeLR.insert(40);
+			console.log('向自平衡树treeLR中插入一个键：35');
+			treeLR.insert(35);
+			console.log('查看自平衡树treeLR：', treeLR);
+			
+			console.log('----------7.5.4 右-左(RL):向左的双旋转----------');
+			
+			const treeRL = new AVLTree();
+			console.log('向自平衡树treeRL中插入一个键：70');
+			treeRL.insert(70);
+			console.log('向自平衡树treeRL中插入一个键：50');
+			treeRL.insert(50);
+			console.log('向自平衡树treeRL中插入一个键：80');
+			treeRL.insert(80);
+			console.log('向自平衡树treeRL中插入一个键：72');
+			treeRL.insert(72);
+			console.log('向自平衡树treeRL中插入一个键：90');
+			treeRL.insert(90);
+			console.log('向自平衡树treeRL中插入一个键：75');
+			treeRL.insert(75);
+			console.log('查看自平衡树treeRL：', treeRL);
+			
+			console.log('----------7.5.5 从AVL树中移除节点----------');
+			
+			console.log('从自平衡树treeRL中移除一个键：50');
+			treeRL.remove(50);
+			console.log('从自平衡树treeRL中移除一个键：70');
+			treeRL.remove(70);
+			console.log('查看自平衡树treeRL：', treeRL);
 		</script>
 	</body>
 </html>

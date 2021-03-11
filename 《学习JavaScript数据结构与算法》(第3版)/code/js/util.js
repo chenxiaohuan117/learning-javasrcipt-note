@@ -10,7 +10,7 @@ function defaultEquals(a, b) {
 
 function defaultCompare(a, b) {
 	if (a === b) {
-		return compare.EQUALS;
+		return Compare.EQUALS;
 	}
 	return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
 }
