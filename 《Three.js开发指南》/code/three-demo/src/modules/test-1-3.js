@@ -1,6 +1,5 @@
 import * as THREE from 'three'
-// 可以创建出能够改变代码变量的界面组件
-import * as dat from 'dat.gui'
+import * as dat from 'dat.gui'// 可以创建出能够改变代码变量的界面组件
 import {initStats, initTrackballControls} from '../util'
 
 // 1-3 让场景动起来
@@ -16,7 +15,9 @@ import {initStats, initTrackballControls} from '../util'
 export default function(id) {
 	// 监听浏览器窗口大小
 	window.addEventListener('resize', onResize, false);
+	
 	const stats = initStats();
+	
 	const scene = new THREE.Scene();
 	const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 	const renderer = new THREE.WebGLRenderer();
@@ -57,6 +58,7 @@ export default function(id) {
 	sphere.position.z = 2;
 	sphere.castShadow = true;
 	scene.add(sphere);
+	
 	camera.position.x = -30;
 	camera.position.y = 40;
 	camera.position.z = 30;
@@ -69,8 +71,11 @@ export default function(id) {
 	spotLight.position.set(-10, 20, -5);
 	spotLight.castShadow = true;
 	scene.add(spotLight);
+	
 	document.getElementById(id).appendChild(renderer.domElement);
+	
 	let step = 0;
+	
 	//保存通过dat.GUI改变的属性
 	const controls = new function() {
 		this.rotationSpeed = 0.02;
@@ -80,12 +85,15 @@ export default function(id) {
 	// 将设置属性的对象传递给dat.GUI对象,并设置属性的取值范围
 	gui.add(controls, 'rotationSpeed', 0, 0.5);
 	gui.add(controls, 'bouncingSpeed', 0, 0.5);
+	
 	const trackballControls = initTrackballControls(camera, renderer);
 	const clock = new THREE.Clock();
+	
 	render();
 
 	function render() {
 		trackballControls.update(clock.getDelta());
+		
 		stats.update();
 		// 设置立方体围绕轴进行旋转
 		cube.rotation.x += controls.rotationSpeed;
@@ -95,14 +103,14 @@ export default function(id) {
 		step += controls.bouncingSpeed;
 		sphere.position.x = 20 + (10 * (Math.cos(step)));
 		sphere.position.y = 2 + (10 * Math.abs(Math.sin(step)));
+		
 		requestAnimationFrame(render);
 		renderer.render(scene, camera);
 	}
 	
 	// 场景对浏览器自适应
 	function onResize() {
-		// 表示屏幕的长宽比
-		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.aspect = window.innerWidth / window.innerHeight;// 表示屏幕的长宽比
 		camera.updateProjectionMatrix();
 		renderer.setSize(window.innerWidth, window.innerHeight);
 	}

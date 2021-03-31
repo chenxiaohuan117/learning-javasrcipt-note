@@ -48,7 +48,9 @@ export default function(id) {
 	// 定义环境光源
 	const ambienLight = new THREE.AmbientLight('#500');
 	scene.add(ambienLight);
+	//将渲染的结果添加到html元素中
 	document.getElementById(id).appendChild(renderer.domElement);
+	//最后告诉渲染器使用指定的摄像机来渲染场景
 	renderer.render(scene, camera);
 }
 
@@ -59,9 +61,7 @@ function createCube(scene) {
 		color: '#f00'
 	});
 	const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-	// 投射阴影
-	cube.castShadow = true;
-	//定位
+	cube.castShadow = true;// 投射阴影
 	cube.position.x = -4;
 	cube.position.y = 2;
 	cube.position.z = 0;
@@ -75,12 +75,10 @@ function createSphere(scene) {
 		color: '#55007f'
 	});
 	const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-	// 定位
 	sphere.position.x = 20;
 	sphere.position.y = 4;
 	sphere.position.z = 2;
-	// 投射阴影
-	sphere.castShadow = true;
+	sphere.castShadow = true;// 投射阴影
 	scene.add(sphere);
 }
 
@@ -93,7 +91,6 @@ function createPlane(scene) {
 	const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 	plane.rotation.x = -0.5 * Math.PI;
 	plane.position.set(15, 0, 0);
-	// 接受阴影
-	plane.receiveShadow = true;
+	plane.receiveShadow = true;// 接受阴影
 	scene.add(plane);
 }

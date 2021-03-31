@@ -18,8 +18,11 @@ import {initStats, initTrackballControls} from '../util'
  */
 
 export default function(id) {
+	
 	const stats = initStats();
+	
 	const scene = new THREE.Scene();
+	
 	// 添加雾化效果
 	// 雾化呈指数增长
 	// scene.fog = new THREE.FogExp2('#fff', 0.02);
@@ -29,11 +32,13 @@ export default function(id) {
 	scene.overrideMaterial = new THREE.MeshLambertMaterial({
 		color: '#f00'
 	});
+	
 	const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
 	const renderer = new THREE.WebGLRenderer();
 	renderer.setClearColor(new THREE.Color('#000'));
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.shadowMap.enabled = true;
+	
 	const planeGeometry = new THREE.PlaneGeometry(60, 40, 1, 1);
 	const planeMaterial = new THREE.MeshLambertMaterial({
 		color: '#fff'
@@ -45,17 +50,22 @@ export default function(id) {
 	plane.position.y = 0;
 	plane.position.z = 0;
 	scene.add(plane);
+	
 	camera.position.x = -30;
 	camera.position.y = 40;
 	camera.position.z = 30;
 	camera.lookAt(scene.position);
+	
 	const ambientLight = new THREE.AmbientLight('#3c3c3c');
 	scene.add(ambientLight);
+	
 	const spotLight = new THREE.SpotLight('#fff', 1.2, 150, 120);
 	spotLight.position.set(-40, 60, -10);
 	spotLight.castShadow = true;
 	scene.add(spotLight);
+	
 	document.getElementById(id).appendChild(renderer.domElement);
+	
 	const controls = new function() {
 		this.rotationSpeed = 0.02;
 		this.numberOfObjects = scene.children.length;
@@ -77,14 +87,14 @@ export default function(id) {
 			});
 			const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 			cube.castShadow = true;
-			// 为立方体指定名字
-			cube.name = "cube-" + scene.children.length;
+			cube.name = "cube-" + scene.children.length;// 为立方体指定名字
 			cube.position.x = -30 + Math.round((Math.random() * planeGeometry.parameters.width));
 			cube.position.y = Math.round((Math.random() * 5));
 			cube.position.z = -20 + Math.round((Math.random() * planeGeometry.parameters.height));
 			scene.add(cube);
 			this.numberOfObjects = scene.children.length;
 		};
+		// 打印场景对象
 		this.outputObjects = function() {
 			console.log(scene.children);
 			let nm = 'cube-' + Math.ceil((Math.random() * (scene.children.length - 1)));
@@ -93,14 +103,17 @@ export default function(id) {
 			}
 		}
 	};
+	
 	const gui = new dat.GUI();
 	gui.add(controls, 'rotationSpeed', 0, 0.5);
 	gui.add(controls, 'addCube');
 	gui.add(controls, 'removeCube');
 	gui.add(controls, 'outputObjects');
 	gui.add(controls, 'numberOfObjects').listen();
+	
 	const trackballControls = initTrackballControls(camera, renderer);
 	const clock = new THREE.Clock();
+	
 	render();
 
 	function render() {
